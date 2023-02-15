@@ -6,6 +6,7 @@ const caesarCipher = (string, shift) => string.split('')
     // if a character fails regex test, return character without modifying it.
     if (!regex.test(char)) return char;
 
+    // Remember if character is uppercased or not
     let uppercased = false;
     if (char.charCodeAt() > 64 && char.charCodeAt() < 91) uppercased = true;
 
@@ -13,6 +14,7 @@ const caesarCipher = (string, shift) => string.split('')
     if (charCode < 97) charCode += 26;
     if (charCode > 122) charCode -= 26;
 
+    // Return uppercased version if uppercased is true
     if (uppercased) return String.fromCharCode(charCode).toUpperCase();
 
     return String.fromCharCode(charCode);
